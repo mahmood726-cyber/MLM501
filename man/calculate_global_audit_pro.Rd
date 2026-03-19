@@ -6,6 +6,12 @@
 \usage{
 calculate_global_audit_pro(df)
 }
+\arguments{
+\item{df}{Data frame from read_mlm_effects(). If missing, loaded automatically.}
+}
+\value{
+Augmented audit data frame with stale_score, roe_index, evidence_age, specialty.
+}
 \description{
 Updated Global Audit with Specialty Grouping
 }

@@ -2,6 +2,13 @@
 # Now with Health-Economic Impact Modeling
 
 #' Simulate a clinical pathway from diagnosis to outcome.
+#' @param prevalence Disease prevalence (0-1).
+#' @param sensitivity Test sensitivity (0-1).
+#' @param specificity Test specificity (0-1).
+#' @param rr Relative risk reduction from treatment.
+#' @param harm_rate Rate of treatment-related adverse events (default 0).
+#' @param n Population size (default 1000).
+#' @return A list with events_prevented, total_harms, and net_benefit.
 #' @export
 simulate_pathway <- function(prevalence, sensitivity, specificity, rr, harm_rate = 0, n = 1000) {
   tp <- n * prevalence * sensitivity
@@ -38,8 +45,8 @@ calculate_economic_impact <- function(pathway_result, cost_per_qaly = 30000, qal
   
   return(list(
     net_economic_value = net_economic_value,
-    value_of_benefit_formatted = paste0("£", format(round(value_of_benefit/1e6, 2), nsmall=2), "M"),
-    cost_of_harm_formatted = paste0("£", format(round(cost_of_harm/1e3, 0)), "K")
+    value_of_benefit_formatted = paste0("GBP", format(round(value_of_benefit/1e6, 2), nsmall=2), "M"),
+    cost_of_harm_formatted = paste0("GBP", format(round(cost_of_harm/1e3, 0)), "K")
   ))
 }
 

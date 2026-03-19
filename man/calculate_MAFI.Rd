@@ -12,6 +12,20 @@ calculate_MAFI(
   alpha = 0.05
 )
 }
+\arguments{
+\item{yi}{Vector of effect sizes.}
+
+\item{vi}{Vector of sampling variances.}
+
+\item{measure}{Effect size measure (e.g., "SMD", "logOR").}
+
+\item{clinical_threshold}{Minimum clinically important difference. Auto-set if NULL.}
+
+\item{alpha}{Significance level (default 0.05).}
+}
+\value{
+A list with MAFI score, class, k, I2, estimate, pval, or NULL if k < 3.
+}
 \description{
 Calculate MAFI (Meta-Analysis Fragility Index)
 }

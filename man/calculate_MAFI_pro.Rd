@@ -6,6 +6,18 @@
 \usage{
 calculate_MAFI_pro(mafi_base, k, I2, study_year_median)
 }
+\arguments{
+\item{mafi_base}{Base MAFI score (0-1).}
+
+\item{k}{Number of studies.}
+
+\item{I2}{I-squared heterogeneity percentage.}
+
+\item{study_year_median}{Median publication year of the studies.}
+}
+\value{
+A list with stale_score, roe_index, and evidence_age.
+}
 \description{
 Implements exponential evidence decay and multilevel fragility adjustments.
 }

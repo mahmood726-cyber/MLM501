@@ -13,6 +13,22 @@ simulate_pathway(
   n = 1000
 )
 }
+\arguments{
+\item{prevalence}{Disease prevalence (0-1).}
+
+\item{sensitivity}{Test sensitivity (0-1).}
+
+\item{specificity}{Test specificity (0-1).}
+
+\item{rr}{Relative risk reduction from treatment.}
+
+\item{harm_rate}{Rate of treatment-related adverse events (default 0).}
+
+\item{n}{Population size (default 1000).}
+}
+\value{
+A list with events_prevented, total_harms, and net_benefit.
+}
 \description{
 Simulate a clinical pathway from diagnosis to outcome.
 }

@@ -6,6 +6,16 @@
 \usage{
 grade_audit(mafi_score, estimate, measure)
 }
+\arguments{
+\item{mafi_score}{Numeric MAFI score (0-1).}
+
+\item{estimate}{Point estimate of the pooled effect.}
+
+\item{measure}{Effect size measure (currently unused, reserved for future MCID scaling).}
+}
+\value{
+Character string with GRADE downgrade recommendation.
+}
 \description{
 GRADE Imprecision Audit (Enhanced for Reviewer 2)
 }

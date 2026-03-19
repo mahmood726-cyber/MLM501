@@ -1,6 +1,7 @@
 #' Quick effects plot (base R)
 #' @param df data.frame with columns TE, seTE
 #' @param main plot title
+#' @importFrom graphics par plot arrows abline
 #' @export
 plot_effects_quick <- function(df, main = "Effects (TE \u00b1 1.96*SE)") {
   stopifnot(is.data.frame(df), all(c("TE","seTE") %in% names(df)))

@@ -1,3 +1,5 @@
+utils::globalVariables(c("outcome_type", "TE", "seTE"))
+
 #' Select a coherent cohort for analysis
 #' @param df effects table from read_mlm_effects()
 #' @param outcome one of c("DICH","CONT","GENSUM")

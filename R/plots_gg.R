@@ -1,3 +1,5 @@
+utils::globalVariables(c("idx", "lower", "upper"))
+
 #' Forest-style plot with ggplot2
 #' @param df data.frame with columns TE, seTE and optional id
 #' @param top_n integer: show top N by precision (default: 50)

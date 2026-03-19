@@ -1,3 +1,6 @@
+# brms uses non-standard evaluation for prior specification
+utils::globalVariables(c("normal", "cauchy", "Intercept", "sd"))
+
 #' Bayesian Fragility & Credibility Engine
 #' @description Re-analyzes high-fragility cohorts using Bayesian methods to assess uncertainty.
 #' @param yi Vector of effect sizes for a single analysis
@@ -21,8 +24,8 @@ calculate_bayesian_fragility <- function(yi, vi) {
     brms::brm(
       yi | se(sei) ~ 1 + (1 | id),
       data = dat,
-      prior = c(prior(normal(0, 2), class = Intercept),
-                prior(cauchy(0, 1), class = sd)),
+      prior = c(brms::prior(normal(0, 2), class = Intercept),
+                brms::prior(cauchy(0, 1), class = sd)),
       iter = 2000, warmup = 500, chains = 2, cores = 1,
       silent = 2, refresh = 0, backend = "rstan"
     )

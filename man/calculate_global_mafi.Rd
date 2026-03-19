@@ -6,6 +6,12 @@
 \usage{
 calculate_global_mafi(df)
 }
+\arguments{
+\item{df}{Data frame from read_mlm_effects(). If missing, loaded automatically.}
+}
+\value{
+A data frame with MAFI scores for each analysis.
+}
 \description{
 Optimized Global Robustness Audit
 }

@@ -1,4 +1,10 @@
 #' Calculate MAFI (Meta-Analysis Fragility Index)
+#' @param yi Vector of effect sizes.
+#' @param vi Vector of sampling variances.
+#' @param measure Effect size measure (e.g., "SMD", "logOR").
+#' @param clinical_threshold Minimum clinically important difference. Auto-set if NULL.
+#' @param alpha Significance level (default 0.05).
+#' @return A list with MAFI score, class, k, I2, estimate, pval, or NULL if k < 3.
 #' @export
 calculate_MAFI <- function(yi, vi, measure = "SMD", clinical_threshold = NULL, alpha = 0.05) {
   if (!requireNamespace("metafor", quietly = TRUE)) stop("metafor required")
@@ -24,6 +30,8 @@ calculate_MAFI <- function(yi, vi, measure = "SMD", clinical_threshold = NULL, a
 }
 
 #' Optimized Global Robustness Audit
+#' @param df Data frame from read_mlm_effects(). If missing, loaded automatically.
+#' @return A data frame with MAFI scores for each analysis.
 #' @export
 calculate_global_mafi <- function(df) {
   if (missing(df)) df <- read_mlm_effects()
@@ -41,6 +49,10 @@ calculate_global_mafi <- function(df) {
 }
 
 #' GRADE Imprecision Audit (Enhanced for Reviewer 2)
+#' @param mafi_score Numeric MAFI score (0-1).
+#' @param estimate Point estimate of the pooled effect.
+#' @param measure Effect size measure (currently unused, reserved for future MCID scaling).
+#' @return Character string with GRADE downgrade recommendation.
 #' @export
 grade_audit <- function(mafi_score, estimate, measure) {
   if (is.na(mafi_score)) return("Insufficient Data")

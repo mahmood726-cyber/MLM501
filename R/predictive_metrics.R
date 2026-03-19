@@ -1,5 +1,10 @@
 #' Enhanced Predictive Metrics with Non-Linear Decay
 #' @description Implements exponential evidence decay and multilevel fragility adjustments.
+#' @param mafi_base Base MAFI score (0-1).
+#' @param k Number of studies.
+#' @param I2 I-squared heterogeneity percentage.
+#' @param study_year_median Median publication year of the studies.
+#' @return A list with stale_score, roe_index, and evidence_age.
 #' @export
 calculate_MAFI_pro <- function(mafi_base, k, I2, study_year_median) {
   current_year <- as.integer(format(Sys.Date(), "%Y"))
@@ -27,6 +32,9 @@ calculate_MAFI_pro <- function(mafi_base, k, I2, study_year_median) {
 }
 
 #' Updated Global Audit with Specialty Grouping
+#' @importFrom stats aggregate median
+#' @param df Data frame from read_mlm_effects(). If missing, loaded automatically.
+#' @return Augmented audit data frame with stale_score, roe_index, evidence_age, specialty.
 #' @export
 calculate_global_audit_pro <- function(df) {
   audit <- calculate_global_mafi(df)
