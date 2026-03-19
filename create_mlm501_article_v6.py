@@ -43,7 +43,7 @@ doc.add_paragraph('Corresponding author: Mahmood Ahmad (mahmood.ahmad2@nhs.net)'
 
 # Affiliations
 doc.add_heading('Affiliations', 1)
-doc.add_paragraph('1. National Health Service (NHS), UK\n2. Royal Free Hospital, London, UK\n3. King\'s College London Medical School, London, UK\n4. St George\'s Hospital, London, UK')
+doc.add_paragraph('1. Royal Free London NHS Foundation Trust, London, UK\n2. Tahir Heart Institute, Rabwah, Pakistan\n3. King\'s College London GKT School of Medical Education, London, UK\n4. St George\'s, University of London, London, UK')
 
 # Abstract
 doc.add_heading('Abstract', 1)
@@ -204,7 +204,30 @@ doc.add_paragraph('Figure 5. Global Metric Distribution: Statistical coverage of
 
 # References
 doc.add_heading('References', 1)
-doc.add_paragraph('1. DerSimonian R, Laird N. Meta-analysis in clinical trials. Controlled Clinical Trials. 1986.\n2. Ahmad M et al. The Meta-Analysis Fragility Index 2.0. NHS Technical Series. 2026.\n3. IntHout J et al. The Hartung-Knapp-Sidik-Jonkman method... BMC Med Res Methodol. 2014.')
+refs = [
+    '1. DerSimonian R, Laird N. Meta-analysis in clinical trials. Control Clin Trials. 1986;7(3):177-188. doi:10.1016/0197-2456(86)90046-2',
+    '2. Viechtbauer W. Conducting meta-analyses in R with the metafor package. J Stat Softw. 2010;36(3):1-48. doi:10.18637/jss.v036.i03',
+    '3. Higgins JPT, Thompson SG. Quantifying heterogeneity in a meta-analysis. Stat Med. 2002;21(11):1539-1558. doi:10.1002/sim.1186',
+    '4. IntHout J, Ioannidis JP, Borm GF. The Hartung-Knapp-Sidik-Jonkman method for random effects meta-analysis is straightforward and considerably outperforms the standard DerSimonian-Laird method. BMC Med Res Methodol. 2014;14:25. doi:10.1186/1471-2288-14-25',
+    '5. Walsh M, Srinathan SK, McAuley DF, et al. The statistical significance of randomized controlled trial results is frequently fragile: a case for a Fragility Index. J Clin Epidemiol. 2014;67(6):622-628. doi:10.1016/j.jclinepi.2013.10.019',
+    '6. Atal I, Porcher R, Boutron I, Ravaud P. The statistical significance of meta-analyses is frequently fragile: definition of a fragility index for meta-analyses. J Clin Epidemiol. 2019;111:32-40. doi:10.1016/j.jclinepi.2019.03.012',
+    '7. Guyatt GH, Oxman AD, Vist GE, et al. GRADE: an emerging consensus on rating quality of evidence and strength of recommendations. BMJ. 2008;336(7650):924-926. doi:10.1136/bmj.39489.470347.AD',
+    '8. Higgins JPT, Thomas J, Chandler J, et al. Cochrane Handbook for Systematic Reviews of Interventions version 6.4. Cochrane; 2023. Available from: www.training.cochrane.org/handbook',
+    '9. Schwarzer G, Carpenter JR, Rucker G. Meta-Analysis with R. Cham: Springer; 2015. doi:10.1007/978-3-319-21416-0',
+    '10. Harrell FE, Lee KL, Mark DB. Multivariable prognostic models: issues in developing models, evaluating assumptions and adequacy, and measuring and reducing errors. Stat Med. 1996;15(4):361-387.',
+    '11. Burkner PC. brms: An R Package for Bayesian Multilevel Models Using Stan. J Stat Softw. 2017;80(1):1-28. doi:10.18637/jss.v080.i01',
+    '12. Borenstein M, Hedges LV, Higgins JPT, Rothstein HR. Introduction to Meta-Analysis. Chichester: John Wiley & Sons; 2009. doi:10.1002/9780470743386',
+    '13. R Core Team. R: A Language and Environment for Statistical Computing. Vienna, Austria: R Foundation for Statistical Computing; 2024. https://www.R-project.org/',
+    '14. Page MJ, McKenzie JE, Bossuyt PM, et al. The PRISMA 2020 statement: an updated guideline for reporting systematic reviews. BMJ. 2021;372:n71. doi:10.1136/bmj.n71',
+    '15. Egger M, Davey Smith G, Schneider M, Minder C. Bias in meta-analysis detected by a simple, graphical test. BMJ. 1997;315(7109):629-634. doi:10.1136/bmj.315.7109.629',
+    '16. Duval S, Tweedie R. Trim and fill: a simple funnel-plot-based method of testing and adjusting for publication bias in meta-analysis. Biometrics. 2000;56(2):455-463. doi:10.1111/j.0006-341X.2000.00455.x',
+    '17. Stanley TD, Doucouliagos H. Meta-regression approximations to reduce publication selection bias. Res Synth Methods. 2014;5(1):60-78. doi:10.1002/jrsm.1095',
+    '18. National Institute for Health and Care Excellence (NICE). Guide to the Methods of Technology Appraisal 2013. London: NICE; 2013.',
+]
+for ref in refs:
+    p = doc.add_paragraph(ref)
+    for run in p.runs:
+        run.font.size = Pt(9)
 
 doc.save(r'C:\Users\user\OneDrive - NHS\Documents\501MLM_Submission\F1000_MLM501_Software_Article_v6.docx')
 print('Detailed F1000 Article (v6) with expanded text and sections generated successfully.')
