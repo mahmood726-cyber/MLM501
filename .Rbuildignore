@@ -1,0 +1,11 @@
+^\.Rproj\.user$
+^.*\.Rproj$
+^renv$
+^renv\.lock$
+^create_mlm501_article.*\.py$
+^F1000_MLM501_Software_Article.*\.docx$
+^figures$
+^Figure.*\.png$
+^EVIDENCE_INTEGRITY_REPORT\.md$
+^\.Rhistory$
+^\.RData$
