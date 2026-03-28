@@ -48,7 +48,7 @@
   },
   "body": "How can researchers efficiently construct large-scale multilevel meta-analysis datasets from Cochrane systematic reviews while preserving full data provenance? We developed MLM501 as an R package and applied it to 501 Cochrane reviews, extracting study-level effect sizes, moderators, and DOI-linked provenance metadata. The package automates effect-size derivation for dichotomous and continuous endpoints, fits three-level hierarchical models, computes fragility indices, and exports structured tables with audit trails. From 501 reviews the package assembled 12,847 study-level records with a pooled OR of 0.78 (95% CI 0.72-0.85) for the dichotomous cohort, confirming feasibility of automated large-scale construction. Cross-validation against manually extracted values from five benchmark reviews showed perfect concordance, and all unit tests passed across R versions 4.1 through 4.5. This tool reduces weeks of manual extraction to minutes, enabling methodological researchers to study cross-review heterogeneity patterns at scale. The current scope is limited to Cochrane reviews with downloadable data, and the importer cannot handle proprietary or non-standard review formats.",
   "affiliation": "Tahir Heart Institute",
-  "email": "mahmood.ahmad2@nhs.net",
+  "email": "author@example.com",
   "references": [
     "Walsh M, Srinathan SK, McAuley DF, et al. The statistical significance of randomized controlled trial results is frequently fragile: a case for a Fragility Index. J Clin Epidemiol. 2014;67(6):622-628.",
     "Atal I, Porcher R, Boutron I, Ravaud P. The statistical significance of meta-analyses is frequently fragile: definition of a fragility index for meta-analyses. J Clin Epidemiol. 2019;111:32-40.",
