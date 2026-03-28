@@ -1,4 +1,4 @@
-﻿# Read-only importer: builds a single multilevel effects table from Cochrane Pairwise .rda files
+# Read-only importer: builds a single multilevel effects table from Cochrane Pairwise .rda files
 in_path <- "C:/Users/user/OneDrive - NHS/Documents/Pairwise70/data"
 out_dir <- file.path("inst","extdata")
 dir.create(out_dir, showWarnings = FALSE, recursive = TRUE)
