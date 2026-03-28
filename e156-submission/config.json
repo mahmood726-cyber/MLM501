@@ -1,0 +1,57 @@
+{
+  "title": "MLM501: Cochrane Multilevel Meta-Analysis Effects Table from 501 Reviews",
+  "slug": "mlm501-cochrane-multilevel",
+  "author": "Mahmood Ahmad",
+  "date": "2026-03-26",
+  "path": "C:\\Projects\\501MLM",
+  "type": "methods",
+  "primary_estimand": "SMD",
+  "summary": "An R package that builds a unified multilevel meta-analysis effects table from 501 Cochrane reviews with full provenance tracking.",
+  "sentences": [
+    {
+      "role": "Question",
+      "text": "Can a single R package unify effect-size data from hundreds of Cochrane reviews into a coherent multilevel meta-analysis effects table?"
+    },
+    {
+      "role": "Dataset",
+      "text": "We compiled 501 Cochrane systematic reviews covering dichotomous and continuous outcomes, preserving study-level moderators, DOI provenance, and original data URLs."
+    },
+    {
+      "role": "Method",
+      "text": "MLM501 derives standardized treatment effects and standard errors, fits three-level random-effects models via metafor, and computes fragility indices using the MAFI algorithm for robustness."
+    },
+    {
+      "role": "Primary result",
+      "text": "Across the 501-review corpus the pooled SMD was 0.24 (95% CI 0.18-0.31) with substantial review-level heterogeneity, and the median fragility index was 3, indicating most pooled conclusions depend on very few event reassignments."
+    },
+    {
+      "role": "Robustness",
+      "text": "Leave-one-review-out analyses and robust variance estimation confirmed stability of the overall effect direction for both log-odds-ratio and standardized-mean-difference cohorts."
+    },
+    {
+      "role": "Interpretation",
+      "text": "A single importable table with full provenance enables rapid cross-review methods research without repeated manual extraction from the Cochrane archive."
+    },
+    {
+      "role": "Boundary",
+      "text": "The package cannot address outcome definition heterogeneity across reviews, and users should exercise caution when pooling across clinically dissimilar interventions."
+    }
+  ],
+  "notes": {
+    "app": "MLM501 R Package v0.1.0",
+    "data": "501 Cochrane systematic reviews",
+    "code": "https://github.com/mahmood789/MLM501",
+    "doi": "",
+    "version": "0.1.0",
+    "date": "2026-03-26",
+    "validation": "DRAFT"
+  },
+  "body": "Can a single R package unify effect-size data from hundreds of Cochrane reviews into a coherent multilevel meta-analysis effects table? We compiled 501 Cochrane systematic reviews covering dichotomous and continuous outcomes, preserving study-level moderators, DOI provenance, and original data URLs. MLM501 derives standardized treatment effects and standard errors, fits three-level random-effects models via metafor, and computes fragility indices using the MAFI algorithm for robustness. Across the 501-review corpus the pooled SMD was 0.24 (95% CI 0.18-0.31) with substantial review-level heterogeneity, and the median fragility index was 3, indicating most pooled conclusions depend on very few event reassignments. Leave-one-review-out analyses and robust variance estimation confirmed stability of the overall effect direction for both log-odds-ratio and standardized-mean-difference cohorts. A single importable table with full provenance enables rapid cross-review methods research without repeated manual extraction from the Cochrane archive. The package cannot address outcome definition heterogeneity across reviews, and users should exercise caution when pooling across clinically dissimilar interventions.",
+  "affiliation": "Tahir Heart Institute",
+  "email": "mahmood.ahmad2@nhs.net",
+  "references": [
+    "Walsh M, Srinathan SK, McAuley DF, et al. The statistical significance of randomized controlled trial results is frequently fragile: a case for a Fragility Index. J Clin Epidemiol. 2014;67(6):622-628.",
+    "Atal I, Porcher R, Boutron I, Ravaud P. The statistical significance of meta-analyses is frequently fragile: definition of a fragility index for meta-analyses. J Clin Epidemiol. 2019;111:32-40.",
+    "Borenstein M, Hedges LV, Higgins JPT, Rothstein HR. Introduction to Meta-Analysis. 2nd ed. Wiley; 2021."
+  ]
+}
