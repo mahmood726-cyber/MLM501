@@ -187,5 +187,5 @@ doc.add_paragraph('Figure 5. Global Metric Distribution: Statistical coverage of
 doc.add_heading('References', 1)
 doc.add_paragraph('1. DerSimonian R, Laird N. Meta-analysis in clinical trials. Controlled Clinical Trials. 1986.\n2. Ahmad M et al. The Meta-Analysis Fragility Index 2.0. NHS Technical Series. 2026.\n3. IntHout J et al. The Hartung-Knapp-Sidik-Jonkman method... BMC Med Res Methodol. 2014.')
 
-doc.save(r'C:\Users\user\OneDrive - NHS\Documents\501MLM_Submission\F1000_MLM501_Software_Article_v5.docx')
+doc.save(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'F1000_MLM501_Software_Article_v5.docx'))
 print('F1000 Article (v5) generated successfully.')

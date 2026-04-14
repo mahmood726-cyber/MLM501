@@ -181,5 +181,5 @@ doc.add_paragraph('3. IntHout J, et al. The Hartung-Knapp-Sidik-Jonkman method..
 doc.add_paragraph('4. Ahmad M. The Meta-Analysis Fragility Index (MAFI). NHS Technical Report. 2026.')
 doc.add_paragraph('5. Page MJ, et al. The PRISMA 2020 statement. BMJ. 2021.')
 
-doc.save(r'C:\Users\user\OneDrive - NHS\Documents\501MLM_Submission\F1000_MLM501_Software_Article_v4.docx')
+doc.save(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'F1000_MLM501_Software_Article_v4.docx'))
 print('F1000 Article (v4) with co-authors generated successfully.')

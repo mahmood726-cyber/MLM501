@@ -229,5 +229,5 @@ for ref in refs:
     for run in p.runs:
         run.font.size = Pt(9)
 
-doc.save(r'C:\Users\user\OneDrive - NHS\Documents\501MLM_Submission\F1000_MLM501_Software_Article_v6.docx')
+doc.save(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'F1000_MLM501_Software_Article_v6.docx'))
 print('Detailed F1000 Article (v6) with expanded text and sections generated successfully.')

@@ -1,3 +1,4 @@
+import os
 import docx
 from docx.shared import Pt
 from docx.enum.text import WD_ALIGN_PARAGRAPH
@@ -117,5 +118,5 @@ doc.add_paragraph('Source code: MLM501 sub-directory (GitHub/Zenodo archive)')
 doc.add_paragraph('Version: v0.1.0 (The Cochrane Fragility Atlas Suite)')
 doc.add_paragraph('License: MIT')
 
-doc.save(r'C:\Users\user\OneDrive - NHS\Documents\501MLM_Submission\F1000_MLM501_Software_Article.docx')
+doc.save(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'F1000_MLM501_Software_Article.docx'))
 print('F1000 Article generated successfully.')
