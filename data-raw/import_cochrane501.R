@@ -1,29 +1,6 @@
 # Read-only importer: builds a single multilevel effects table from Cochrane Pairwise .rda files
-resolve_script_dir <- function() {
-  file_arg <- grep("^--file=", commandArgs(trailingOnly = FALSE), value = TRUE)
-  if (length(file_arg)) {
-    return(dirname(normalizePath(sub("^--file=", "", file_arg[1]), winslash = "/", mustWork = FALSE)))
-  }
-
-  frame_files <- vapply(
-    sys.frames(),
-    function(frame) if (!is.null(frame$ofile)) frame$ofile else "",
-    character(1)
-  )
-  frame_files <- frame_files[nzchar(frame_files)]
-  if (length(frame_files)) {
-    return(dirname(normalizePath(frame_files[[length(frame_files)]], winslash = "/", mustWork = FALSE)))
-  }
-
-  normalizePath(file.path(getwd(), "data-raw"), winslash = "/", mustWork = FALSE)
-}
-
-script_dir <- resolve_script_dir()
-source(file.path(script_dir, "path_utils.R"))
-
-project_root <- find_project_root(script_dir)
-in_path <- resolve_pairwise70_data_dir(project_root)
-out_dir <- file.path(project_root, "inst", "extdata")
+in_path <- "C:/Users/user/OneDrive - NHS/Documents/Pairwise70/data"
+out_dir <- file.path("inst","extdata")
 dir.create(out_dir, showWarnings = FALSE, recursive = TRUE)
 
 derive_smd <- TRUE  # set FALSE to prefer MD over SMD for continuous outcomes
