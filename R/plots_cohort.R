@@ -1,4 +1,4 @@
-﻿#' Plot a cohort quickly (base R)
+#' Plot a cohort quickly (base R)
 #' @param df effects table (from read_mlm_effects())
 #' @param outcome one of c("DICH","CONT","GENSUM")
 #' @param measure e.g., "logOR","MD","SMD","GIV","GEN_CI"

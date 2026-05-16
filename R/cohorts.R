@@ -1,4 +1,4 @@
-﻿#' Select a coherent cohort for analysis
+#' Select a coherent cohort for analysis
 #' @param df effects table from read_mlm_effects()
 #' @param outcome one of c("DICH","CONT","GENSUM")
 #' @param measure character (e.g., "logOR","MD","GIV","GEN_CI")

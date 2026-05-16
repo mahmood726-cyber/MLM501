@@ -1,4 +1,4 @@
-﻿#' Forest-style plot with ggplot2
+#' Forest-style plot with ggplot2
 #' @param df data.frame with columns TE, seTE and optional id
 #' @param top_n integer: show top N by precision (default: 50)
 #' @param title character: plot title

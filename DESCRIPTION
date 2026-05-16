@@ -8,7 +8,8 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 Depends: R (>= 4.1)
-Imports: utils, stats
-Suggests: dplyr, tibble, metafor, clubSandwich
+Imports: utils, stats, metafor, ggplot2
+Suggests: dplyr, tibble, clubSandwich
 URL: https://github.com/mahmood789/MLM501
 BugReports: https://github.com/mahmood789/MLM501/issues
+RoxygenNote: 7.3.3

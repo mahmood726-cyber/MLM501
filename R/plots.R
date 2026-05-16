@@ -1,4 +1,4 @@
-﻿#' Quick effects plot (base R)
+#' Quick effects plot (base R)
 #' @param df data.frame with columns TE, seTE
 #' @param main plot title
 #' @export
