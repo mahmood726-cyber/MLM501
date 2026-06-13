@@ -5,7 +5,9 @@
 #' @param prevalence Disease prevalence (0-1).
 #' @param sensitivity Test sensitivity (0-1).
 #' @param specificity Test specificity (0-1).
-#' @param rr Relative risk reduction from treatment.
+#' @param rr Relative risk of the outcome under treatment vs. control (a risk
+#'   ratio in [0, 1]); e.g. rr = 0.85 means treatment retains 85\% of the
+#'   baseline risk, so the per-treated-case risk reduction is (1 - rr).
 #' @param harm_rate Rate of treatment-related adverse events (default 0).
 #' @param n Population size (default 1000).
 #' @return A list with events_prevented, total_harms, and net_benefit.

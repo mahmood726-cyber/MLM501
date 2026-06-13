@@ -20,7 +20,9 @@ simulate_pathway(
 
 \item{specificity}{Test specificity (0-1).}
 
-\item{rr}{Relative risk reduction from treatment.}
+\item{rr}{Relative risk of the outcome under treatment vs. control (a risk
+ratio in [0, 1]); e.g. rr = 0.85 means treatment retains 85\% of the
+baseline risk, so the per-treated-case risk reduction is (1 - rr).}
 
 \item{harm_rate}{Rate of treatment-related adverse events (default 0).}
 

@@ -55,6 +55,21 @@ test_that("calculate_economic_impact returns monetary values", {
   expect_true(is.numeric(econ$net_economic_value))
 })
 
+test_that("get_cohort filters on both outcome and measure", {
+  df <- data.frame(
+    outcome_type = c("DICH", "DICH", "CONT"),
+    measure      = c("logOR", "MD", "MD"),
+    TE           = c(0.1, 0.2, 0.3),
+    seTE         = c(0.1, 0.1, 0.1),
+    stringsAsFactors = FALSE
+  )
+  coh <- get_cohort(df, "DICH", "logOR")
+  # Only the single DICH/logOR row should survive both filters.
+  expect_equal(nrow(coh), 1L)
+  expect_true(all(coh$outcome_type == "DICH"))
+  expect_true(all(coh$measure == "logOR"))
+})
+
 test_that("read_mlm_effects returns a data.frame", {
   # This depends on inst/extdata/mlm_effects.csv existing
   skip_if(!file.exists(system.file("extdata", "mlm_effects.csv", package = "MLM501")))
