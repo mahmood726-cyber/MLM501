@@ -70,6 +70,68 @@ test_that("get_cohort filters on both outcome and measure", {
   expect_true(all(coh$measure == "logOR"))
 })
 
+test_that("calculate_global_audit_pro returns augmented data.frame on valid input", {
+  skip_if_not_installed("metafor")
+  df <- data.frame(
+    review_id   = "CD000028",
+    analysis_id = rep(c("A1", "A2"), each = 4),
+    study_id    = paste0("s", 1:8),
+    study_year  = c(2000, 2001, 2002, 2003, 1998, 1999, 2000, 2001),
+    outcome_type = "GENSUM",
+    measure     = "GEN_CI",
+    TE          = c(0.5, 0.55, 0.48, 0.6, 0.1, 0.2, -0.1, 0.15),
+    seTE        = rep(0.1, 8),
+    stringsAsFactors = FALSE
+  )
+  audit <- calculate_global_audit_pro(df)
+  expect_s3_class(audit, "data.frame")
+  expect_true(all(c("MAFI", "stale_score", "roe_index", "evidence_age",
+                    "specialty", "study_year") %in% names(audit)))
+  expect_equal(nrow(audit), 2L)
+  expect_true(all(!is.na(audit$stale_score)))
+})
+
+test_that("calculate_global_audit_pro degrades gracefully when every analysis has k<3 (F1 regression)", {
+  skip_if_not_installed("metafor")
+  # Every analysis_id has < 3 study rows -> calculate_global_mafi() returns NULL.
+  # Previously this crashed in merge() with "'by' must specify a uniquely valid column".
+  tiny <- data.frame(
+    review_id   = "CD000028",
+    analysis_id = c("A1", "A1"),
+    study_id    = c("s1", "s2"),
+    study_year  = c(2000, 2001),
+    outcome_type = "GENSUM",
+    measure     = "GEN_CI",
+    TE          = c(0.1, 0.2),
+    seTE        = c(0.1, 0.1),
+    stringsAsFactors = FALSE
+  )
+  expect_silent(res <- suppressMessages(calculate_global_audit_pro(tiny)))
+  expect_true(is.null(res) || nrow(res) == 0)
+})
+
+test_that("calculate_global_audit_pro handles all-NA study_year without error (F2 regression)", {
+  skip_if_not_installed("metafor")
+  # study_year entirely NA -> aggregate() default na.omit dropped all rows and
+  # errored with "no rows to aggregate". Should now produce NA evidence metrics.
+  df <- data.frame(
+    review_id   = "CD000028",
+    analysis_id = rep(c("A1", "A2"), each = 4),
+    study_id    = paste0("s", 1:8),
+    study_year  = NA_real_,
+    outcome_type = "GENSUM",
+    measure     = "GEN_CI",
+    TE          = c(0.5, 0.55, 0.48, 0.6, 0.1, 0.2, -0.1, 0.15),
+    seTE        = rep(0.1, 8),
+    stringsAsFactors = FALSE
+  )
+  audit <- suppressMessages(calculate_global_audit_pro(df))
+  expect_s3_class(audit, "data.frame")
+  expect_equal(nrow(audit), 2L)
+  expect_true(all(is.na(audit$stale_score)))
+  expect_true(all(is.na(audit$evidence_age)))
+})
+
 test_that("read_mlm_effects returns a data.frame", {
   # This depends on inst/extdata/mlm_effects.csv existing
   skip_if(!file.exists(system.file("extdata", "mlm_effects.csv", package = "MLM501")))
